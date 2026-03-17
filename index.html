@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shaiel & Cristian</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<style>
+
+/* BASE */
+body{
+margin:0;
+font-family:Poppins;
+background:#ffffff;
+color:#333;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* MARCA DE AGUA */
+body::before{
+content:"S & C";
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:80px;
+color:rgba(128,0,32,0.05);
+font-family:Playfair Display;
+z-index:0;
+}
+
+/* BORDE */
+body::after{
+content:"";
+position:fixed;
+top:12px;
+left:12px;
+right:12px;
+bottom:12px;
+border:2px solid #800020;
+border-radius:20px;
+pointer-events:none;
+z-index:1000;
+}
+
+/* DECORACION */
+.decoracion{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+z-index:0;
+opacity:0.08;
+background-image:
+url("https://cdn-icons-png.flaticon.com/512/833/833472.png"),
+url("https://cdn-icons-png.flaticon.com/512/892/892458.png");
+background-repeat:no-repeat,no-repeat;
+background-position:10% 20%, 85% 70%;
+background-size:80px,90px;
+}
+
+/* PORTADA */
+.hero{
+height:100vh;
+background:url("foto.jpeg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+color:white;
+text-shadow:0 2px 10px rgba(0,0,0,0.6);
+padding:20px;
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(1.05);}
+to{opacity:1; transform:scale(1);}
+}
+
+.hero h1{
+font-family:Playfair Display;
+font-size:42px;
+margin:0;
+animation:brillo 3s infinite alternate;
+}
+
+@keyframes brillo{
+from{opacity:0.8;}
+to{opacity:1; text-shadow:0 0 15px rgba(255,255,255,0.8);}
+}
+
+.hero button{
+margin-top:25px;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:#800020;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* CONTENIDO */
+#contenido{
+animation:fadeContenido 1.5s ease;
+}
+
+@keyframes fadeContenido{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* SECCIONES */
+.seccion{
+padding:50px 20px;
+position:relative;
+z-index:1;
+}
+
+/* TITULOS */
+h2{
+font-family:Playfair Display;
+color:#800020;
+}
+
+/* CARTA */
+.carta{
+max-width:500px;
+margin:auto;
+font-style:italic;
+line-height:1.6;
+}
+
+/* COUNTDOWN */
+#countdown{
+font-size:22px;
+margin-top:20px;
+}
+
+/* BOTONES */
+.boton-maps{
+display:inline-block;
+margin-top:20px;
+padding:14px 25px;
+background:#800020;
+color:white;
+border-radius:25px;
+text-decoration:none;
+}
+
+/* FORM */
+form input, form textarea{
+width:90%;
+max-width:350px;
+padding:12px;
+margin:8px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+form button{
+padding:14px 25px;
+background:#800020;
+color:white;
+border:none;
+border-radius:25px;
+}
+
+/* ALIAS */
+.alias{
+font-size:22px;
+font-weight:bold;
+letter-spacing:2px;
+color:#800020;
+}
+
+/* BOTON MUSICA */
+.musica-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#800020;
+color:white;
+border:none;
+border-radius:50%;
+width:50px;
+height:50px;
+font-size:20px;
+cursor:pointer;
+z-index:1001;
+}
+
+/* PETALOS */
+.petalo{
+position:fixed;
+top:-10px;
+border-radius:50%;
+opacity:0.8;
+pointer-events:none;
+z-index:999;
+animation:caer linear forwards;
+}
+
+@keyframes caer{
+0%{transform:translateY(-10px) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+footer{
+padding:30px;
+font-size:14px;
+color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="decoracion"></div>
+
+<div class="hero">
+<h1>Shaiel & Cristian</h1>
+<p>¡Nos casamos!</p>
+<p>13 Marzo 2027 - 19:00 hs</p>
+<button onclick="abrir()">Abrir invitación</button>
+</div>
+
+<div id="contenido" style="display:none;">
+
+<section class="seccion carta">
+<p>
+Con mucha emoción queremos invitarte a ser parte de uno de los días más importantes de nuestra vida.
+</p>
+<p>
+Nos encantaría compartir este momento tan especial con vos.
+</p>
+</section>
+
+<section class="seccion">
+<h2>Cuenta regresiva</h2>
+<div id="countdown"></div>
+</section>
+
+<section class="seccion">
+<h2>Ubicación</h2>
+<p>RECEPCIONES BELEN Lima 5843, Isidro Casanova</p>
+<a class="boton-maps" target="_blank"
+href="https://www.google.com/maps/search/?api=1&query=Lima+5843+Isidro+Casanova">
+Ver ubicación
+</a>
+</section>
+
+<section class="seccion">
+<h2>Confirmar asistencia</h2>
+<form action="https://formsubmit.co/Shaielzeballos@gmail.com" method="POST">
+<input type="text" name="Nombre" placeholder="Tu nombre" required>
+<input type="number" name="Acompañantes" placeholder="Acompañantes">
+<textarea name="Mensaje" placeholder="Mensaje"></textarea>
+<br>
+<button type="submit">Confirmar</button>
+</form>
+</section>
+
+<section class="seccion">
+<h2>Nuestro regalo</h2>
+<p>Tu presencia es nuestro mejor regalo.</p>
+<p>Si querés ayudarnos con nuestra luna de miel:</p>
+<p class="alias">Shaielycristian30</p>
+</section>
+
+<footer>
+Con amor 💍 Shaiel & Cristian
+</footer>
+
+</div>
+
+<button class="musica-btn" onclick="toggleMusica()">🎵</button>
+
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let musica = document.getElementById("musica");
+
+function abrir(){
+document.querySelector(".hero").style.display="none";
+document.getElementById("contenido").style.display="block";
+musica.play();
+}
+
+function toggleMusica(){
+if(musica.paused){
+musica.play();
+}else{
+musica.pause();
+}
+}
+
+/* COUNTDOWN */
+var fecha = new Date("Mar 13, 2027 19:00:00").getTime();
+
+setInterval(function(){
+var now = new Date().getTime();
+var d = fecha - now;
+
+var dias = Math.floor(d/(1000*60*60*24));
+var horas = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+var min = Math.floor((d%(1000*60*60))/(1000*60));
+var seg = Math.floor((d%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+dias+" días "+horas+" hs "+min+" min "+seg+" seg";
+},1000);
+
+/* PETALOS */
+function crearPetalo(){
+const p = document.createElement("div");
+p.classList.add("petalo");
+
+const size = Math.random()*10+8;
+p.style.width = size+"px";
+p.style.height = size*1.4+"px";
+
+const colores = ["#ffffff","#800020"];
+p.style.background = colores[Math.floor(Math.random()*2)];
+
+p.style.left = Math.random()*100+"vw";
+p.style.animationDuration = (Math.random()*5+5)+"s";
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),10000);
+}
+
+setInterval(crearPetalo,200);
+
+</script>
+
+</body>
+</html>
