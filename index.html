@@ -33,72 +33,29 @@ font-family:Playfair Display;
 z-index:0;
 }
 
-/* ===== BORDE CORAZONES PREMIUM ===== */
-.borde-corazones{
+/* ===== BORDE ELEGANTE BORDEAU ===== */
+.marco{
 position:fixed;
+top:15px;
+left:15px;
+right:15px;
+bottom:15px;
+border:1.5px solid #7b1e2b;
+border-radius:25px;
+pointer-events:none;
+z-index:999;
+}
+
+/* DETALLE DOBLE BORDE (más premium) */
+.marco::before{
+content:"";
+position:absolute;
 top:10px;
 left:10px;
 right:10px;
 bottom:10px;
-pointer-events:none;
-z-index:1000;
-}
-
-/* LINEAS */
-.linea{
-position:absolute;
-white-space:nowrap;
-font-size:16px;
-animation: latido 2s infinite ease-in-out;
-}
-
-/* ARRIBA */
-.linea-top{
-top:0;
-left:0;
-width:100%;
-text-align:center;
-}
-
-/* ABAJO */
-.linea-bottom{
-bottom:0;
-left:0;
-width:100%;
-text-align:center;
-}
-
-/* IZQUIERDA */
-.linea-left{
-top:0;
-left:0;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-padding:5px 0;
-}
-
-/* DERECHA */
-.linea-right{
-top:0;
-right:0;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-padding:5px 0;
-}
-
-/* COLORES INTERCALADOS */
-.rojo{ color:#7b1e2b; }
-.blanco{ color:#ffffff; text-shadow:0 0 2px #7b1e2b; }
-
-/* ANIMACION SUAVE */
-@keyframes latido{
-0%{ transform: scale(1); opacity:0.8; }
-50%{ transform: scale(1.15); opacity:1; }
-100%{ transform: scale(1); opacity:0.8; }
+border:1px solid rgba(123,30,43,0.4);
+border-radius:20px;
 }
 
 /* DECORACION */
@@ -324,55 +281,7 @@ color:#555;
 
 <body>
 
-<div class="borde-corazones">
-
-<!-- ARRIBA -->
-<div class="linea linea-top">
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-</div>
-  
-<!-- ABAJO -->
-<div class="linea linea-bottom">
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-</div>
-  
-<!-- IZQUIERDA -->
-<div class="linea-left">
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-</div>
-  
-<!-- DERECHA -->
-<div class="linea-right">
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-<span class="blanco">❤</span>
-<span class="rojo">❤</span>
-</div>
-  
-</div>
+<div class="marco"></div>
   
 <div class="decoracion"></div>
 
@@ -436,8 +345,8 @@ Ver ubicación
 </section>
 
 <section class="seccion">
-<div class="polaroid">
-<img src="foto2.jpeg">
+ <div class="polaroid">
+   <img src="foto2.jpeg">
 </div>
 </section>
   
