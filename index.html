@@ -34,16 +34,32 @@ z-index:0;
 }
 
 /* BORDE ELEGANTE */
-body::before{
-content:"";
+.borde-corazones{
 position:fixed;
 top:10px;
 left:10px;
 right:10px;
 bottom:10px;
-border:2px solid #7b1e2b;
-border-radius:20px;
 pointer-events:none;
+z-index:999;
+}
+
+.borde-corazones::before,
+.borde-corazones::after{
+content:"❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️ ❤️";
+position:absolute;
+width:100%;
+text-align:center;
+font-size:16px;
+color:#7b1e2b;
+}
+
+.borde-corazones::before{
+top:0;
+}
+
+.borde-corazones::after{
+bottom:0;
 }
 
 /* DECORACION */
@@ -269,6 +285,8 @@ color:#555;
 
 <body>
 
+<div class="borde-corazones"></div> 
+  
 <div class="decoracion"></div>
 
 <div class="hero">
