@@ -200,8 +200,47 @@ opacity:0.8;
 pointer-events:none;
 z-index:999;
 animation:caer linear forwards;
+
+/* ====== GALERIA POLAROID ====== */
+.galeria{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  padding:20px;
 }
 
+/* MARCO POLAROID */
+.polaroid{
+  background:white;
+  padding:10px 10px 25px 10px;
+  width:180px;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+}
+
+.polaroid:nth-child(2){
+  transform: rotate(2deg);
+}
+
+.polaroid:nth-child(3){
+  transform: rotate(-1deg);
+}
+
+.polaroid:hover{
+  transform: scale(1.05) rotate(0deg);
+}
+
+/* IMAGEN */
+.polaroid img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:5px;
+}
+  
 @keyframes caer{
 0%{transform:translateY(-10px) rotate(0deg);}
 100%{transform:translateY(110vh) rotate(360deg);}
@@ -240,8 +279,9 @@ Nos encantaría compartir este momento tan especial con vos.
   
 <section class="seccion">
 <h2>🤍El dia de la propuesta🤍</h2>
-<div class="galeria">
+<div class="polaroid">
 <img src="foto1.jpeg">
+</div>
 </section>      
   
 <section class="seccion">
@@ -277,8 +317,9 @@ Ver ubicación
 </section>
 
 <section class="seccion">
-<div class="galeria">
+<div class="polaroid">
 <img src="foto2.jpeg">
+</div>
 </section>
   
 <footer>
