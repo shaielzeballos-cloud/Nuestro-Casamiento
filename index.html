@@ -33,18 +33,17 @@ font-family:Playfair Display;
 z-index:0;
 }
 
-/* BORDE */
-body::after{
+/* BORDE ELEGANTE */
+body::before{
 content:"";
 position:fixed;
-top:12px;
-left:12px;
-right:12px;
-bottom:12px;
-border:2px solid #800020;
+top:10px;
+left:10px;
+right:10px;
+bottom:10px;
+border:2px solid #7b1e2b;
 border-radius:20px;
 pointer-events:none;
-z-index:1000;
 }
 
 /* DECORACION */
@@ -203,58 +202,55 @@ animation:caer linear forwards;
 
 /* ====== GALERIA POLAROID PREMIUM ====== */
 .galeria{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-  padding:20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+max-width:500px;
+margin:auto;
 }
 
-/* MARCO POLAROID */
+/* POLAROID */
 .polaroid{
-  background:white;
-  padding:10px 10px 35px 10px;
-  width:180px;
-  border-radius:12px;
-  border:2px solid #7b1e2b; /* borde bordo fino */
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-  transform: rotate(-2deg);
-  transition: all 0.3s ease;
-  position:relative;
+background:white;
+padding:8px 8px 30px 8px;
+width:140px; /* 🔥 MAS CHICAS */
+border-radius:12px;
+border:2px solid #7b1e2b;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+position:relative;
+transition:0.3s;
 }
 
-.polaroid:nth-child(2){
-  transform: rotate(2deg);
-}
-
-.polaroid:nth-child(3){
-  transform: rotate(-1deg);
-}
+/* EFECTO */
+.polaroid:nth-child(1){ transform: rotate(-2deg); }
+.polaroid:nth-child(2){ transform: rotate(2deg); }
+.polaroid:nth-child(3){ transform: rotate(-1deg); }
 
 .polaroid:hover{
-  transform: scale(1.05) rotate(0deg);
+transform: scale(1.05) rotate(0deg);
 }
 
 /* IMAGEN */
 .polaroid img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  border-radius:6px;
+width:100%;
+height:160px; /* 🔥 MAS BAJA */
+object-fit:cover;
+border-radius:6px;
 }
 
 /* TEXTO ABAJO */
 .polaroid::after{
-  content:"01-01-2026";
-  position:absolute;
-  bottom:8px;
-  left:0;
-  width:100%;
-  text-align:center;
-  font-size:14px;
-  color:#7b1e2b;
-  font-family: 'Georgia', serif;
+content:"01-01-2026";
+position:absolute;
+bottom:6px;
+left:0;
+width:100%;
+text-align:center;
+font-size:12px;
+color:#7b1e2b;
 }
+
   
 @keyframes caer{
 0%{transform:translateY(-10px) rotate(0deg);}
@@ -291,9 +287,10 @@ Con mucha emoción queremos invitarte a ser parte de uno de los días más impor
 Nos encantaría compartir este momento tan especial con vos.
 </p>
 </section>
-  
+<!-- GALERIA -->  
 <section class="seccion">
 <h2>🤍El dia de la propuesta💍</h2>
+<div class="galeria">
 <div class="polaroid">
 <img src="foto1.jpeg">
 </div>
