@@ -338,13 +338,18 @@ Ver ubicación
 
 <section class="seccion">
 <h2>Confirmar asistencia</h2>
-<form action="https://formsubmit.co/Shaielzeballos@gmail.com" method="POST">
+<form id="formulario">
+
 <input type="text" name="Nombre" placeholder="Tu nombre" required>
 <input type="number" name="Acompañantes" placeholder="Acompañantes">
 <textarea name="Mensaje" placeholder="Mensaje"></textarea>
 <br>
 <button type="submit">Confirmar</button>
 </form>
+
+<p id="gracias" style="display:none; color:#800020; margin-top:20px; font-size:18px;">
+💍 ¡Gracias por confirmar tu asistencia!
+</p>
 </section>
 
 <section class="seccion">
@@ -428,7 +433,30 @@ setTimeout(()=>p.remove(),10000);
 }
 
 setInterval(crearPetalo,200);
+}
 
+document.getElementById("formulario").addEventListener("submit", function(e){
+e.preventDefault();
+
+fetch("https://formsubmit.co/ajax/Shaielzeballos@gmail.com", {
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"Accept": "application/json"
+},
+body: JSON.stringify({
+Nombre: this.Nombre.value,
+Acompañantes: this.Acompañantes.value,
+Mensaje: this.Mensaje.value
+})
+})
+.then(response => {
+document.getElementById("formulario").style.display = "none";
+document.getElementById("gracias").style.display = "block";
+})
+.catch(error => alert("Hubo un error, intentá nuevamente"));
+});
+  
 </script>
 
 </body>
