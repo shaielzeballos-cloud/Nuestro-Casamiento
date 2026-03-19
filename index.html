@@ -338,8 +338,8 @@ Ver ubicación
 
 <section class="seccion">
 <h2>Confirmar asistencia</h2>
-<form id="formulario">
 
+<form id="formulario">
 <input type="text" name="Nombre" placeholder="Tu nombre" required>
 <input type="number" name="Acompañantes" placeholder="Acompañantes">
 <textarea name="Mensaje" placeholder="Mensaje"></textarea>
@@ -434,7 +434,9 @@ setTimeout(()=>p.remove(),10000);
 }
 
 setInterval(crearPetalo,200);
+}
 
+/* FORMULARIO AJAX */
 document.getElementById("formulario").addEventListener("submit", function(e){
 e.preventDefault();
 
@@ -450,13 +452,13 @@ Acompañantes: this.Acompañantes.value,
 Mensaje: this.Mensaje.value
 })
 })
-.then(response => {
+.then(() => {
 document.getElementById("formulario").style.display = "none";
 document.getElementById("gracias").style.display = "block";
 })
-.catch(error => alert("Hubo un error, intentá nuevamente"));
+.catch(() => alert("Error al enviar"));
 });
-  
+
 </script>
 
 </body>
